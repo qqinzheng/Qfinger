@@ -3,29 +3,30 @@
 无论多么复杂的手势系统,都会基于四个最基础的触摸事件touchstart,touchmove,touchend,touchcancel
 
 
-var QfingerInstance = new QfingerInstance('#abc',{
-    touchStart: function(){},
-    touchMove: function(){},
-    touchEnd: function(){},
-    touchCancel: function(){},
-    // 两指拉伸
-    pinch: function(){},
-    // 多指旋转
-    rotate: function(){},
-    // 多指触控,类似于多指touchstart
-    multipointStart: function(){},
-    // 多指离开时触发
-    multipointEnd: function(){},
-    // click,模拟点击时间,有大约250毫秒的延迟
-    click: function(){},
-    //longTap 长按事件,
-    longTap: function(){},
-    // 双击事件 
-    doubleTap:function(){},
-    // pressMove 点击旋转事件
-    pressMove: function(){},
-    // swipe 左滑右滑事件
-    swipe: function(){},
-    // tap 没有相应延迟,可以用于连连看之类的游戏，和click不一致
-    tap: function(){}
+### Pure JS:
+```js
+var af = new AlloyFinger(element, {
+    touchStart: function () { },
+    touchMove: function () { },
+    touchEnd:  function () { },
+    touchCancel: function () { },
+    multipointStart: function () { },
+    multipointEnd: function () { },
+    tap: function () { },
+    doubleTap: function () { },
+    longTap: function () { },
+    singleTap: function () { },
+    rotate: function (evt) {
+        console.log(evt.angle);
+    },
+    pinch: function (evt) {
+        console.log(evt.zoom);
+    },
+    pressMove: function (evt) {
+        console.log(evt.deltaX);
+        console.log(evt.deltaY);
+    },
+    swipe: function (evt) {
+        console.log("swipe" + evt.direction);
+    }
 });
